@@ -3,6 +3,11 @@ package Activity2;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * In this activity you need to debug errors. Hint there are 5 errors in this implementation, find and fix them. 
+ * After you fix all the errors, all the tests in ShoppingCartTest.java should pass.
+ */
+
 class Product {
     private String name;
     private double price;
