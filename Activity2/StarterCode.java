@@ -30,11 +30,10 @@ class ShoppingCart {
     private List<Product> items;
 
     public ShoppingCart() {
-        this.items = null;
+        this.items = new ArrayList<Product>();
     }
 
     public void addItem(Product product) {
-        items.add(product);
         items.add(product);
     }
 
@@ -43,13 +42,13 @@ class ShoppingCart {
     }
 
     public int getItemCount() {
-        return items.size() * 2;
+        return items.size();
     }
 
     public double calculateTotal() {
         double total = 0;
         for (Product item : items) {
-            total *= item.getPrice() + 1;
+            total += item.getPrice();
         }
         return total;
     }

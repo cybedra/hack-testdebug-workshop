@@ -1,5 +1,6 @@
 package Activity1;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -28,31 +29,44 @@ public class ShoppingCartTest {
 
     @Test
     public void testRemoveItemFromCart() {
-        //code here
+        cart.addItem(product1);
+        assertEquals(0, cart.getItemCount());
     }
 
     @Test
     public void testCalculateTotal() {
-        //code here
+        assertEquals(0.0, cart.calculateTotal());
+        cart.addItem(product1);
+        assertEquals(10.0, cart.calculateTotal());
+        cart.addItem(product2);
+        assertEquals(10.0 + 15.0, cart.calculateTotal());
     }
 
     @Test
     public void testEmptyCartTotalIsZero() {
-        //code here
+        assertEquals(0.0, cart.calculateTotal());
     }
 
     @Test
     public void testAddMultipleItems() {
-        //code here
+        cart.addItem(product1);
+        assertEquals(1, cart.getItemCount());
+        cart.addItem(product2);
+        assertEquals(2, cart.getItemCount());
     }
 
     @Test
     public void testRemoveNonexistentItem() {
-        //code here
+        cart.addItem(product1);
+        cart.removeItem(product2);
+        assertEquals(1, cart.getItemCount());
     }
 
     @Test
     public void testClearCart() {
-        //code here
+        cart.addItem(product1);
+        cart.addItem(product2);
+        cart.clearCart();
+        assertEquals(0, cart.getItemCount());
     }
 }
